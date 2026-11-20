@@ -58,3 +58,8 @@ def summarize(dates, flows, sites):
     print(summary) 
     summary.to_csv('streamflow_summary.csv', index=False)
 summary = summarize(dates, flows, sites)
+
+threshold = float(input("Enter a flow threshold in cfs: "))  # Imput a flow threshold from the user.
+for index, site in enumerate(sites):  # Loop through each site and its index.
+    hours_above_threshold = np.sum(flows[:, index] > threshold) * 0.25  # Calculate the number of hours above the threshold for each site.
+    print(f"Site {site}: {hours_above_threshold:g} hours above {threshold:g} cfs")
