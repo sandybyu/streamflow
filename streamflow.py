@@ -32,7 +32,10 @@ def plot_streamflow(dates, flows, sites):
     plt.xticks(rotation=45)
     plt.legend(title='Site Numbers')
     plt.grid(True)
+    plt.savefig("provo_streamflow.png", dpi=150, bbox_inches="tight")
     plt.show()
+
+
 
 # Main program
 sites = ["10163000", "10155200", "10155500", "10154200", "10155000"]
